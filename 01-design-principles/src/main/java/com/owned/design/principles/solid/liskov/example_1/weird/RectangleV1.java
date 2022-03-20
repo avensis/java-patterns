@@ -13,12 +13,12 @@ public class RectangleV1 {
         this.width = width;
     }
 
-    void setLength(Integer length) {
-        this.length = length;
+    public Integer getLength() {
+        return this.length;
     }
 
-    void setWidth(Integer width) {
-        this.width = width;
+    public Integer getWidth() {
+        return this.width;
     }
 
     public Integer getArea() {

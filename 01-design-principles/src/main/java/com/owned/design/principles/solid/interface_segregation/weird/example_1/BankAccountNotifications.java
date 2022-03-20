@@ -1,11 +1,13 @@
 package com.owned.design.principles.solid.interface_segregation.weird.example_1;
 
-//TODO 16/03/22 - Apply pattern correctly
-public interface BankAccountNotifications {
-
+interface IBankAccountSlackNotifications {
     void notify(String channel, String message); //slack
+}
 
+interface IBankAccountEmailNotifications {
     void notify(String recipient, String subject, String message); //email
+}
 
+interface IBankAccountMicrometerNotifications {
     void notify(String url, String metricName, String description, String message); //Micrometer
 }

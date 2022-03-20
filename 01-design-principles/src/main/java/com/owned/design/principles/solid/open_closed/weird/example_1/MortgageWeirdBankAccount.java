@@ -5,12 +5,14 @@ import lombok.Value;
 import java.math.BigDecimal;
 
 @Value
-public class MortgageWeirdBankAccount {
+public class MortgageWeirdBankAccount extends BankAccount implements BankAccountPercentage{
 
-    BigDecimal amount;
-    int years;
 
-    public int calculatePendingPercentage() {
+    MortgageWeirdBankAccount(BigDecimal amount, int years) {
+        super(amount, years);
+    }
+
+    public int calculatePercentage() {
         return amount.intValue() * 100 / years;
     }
 }

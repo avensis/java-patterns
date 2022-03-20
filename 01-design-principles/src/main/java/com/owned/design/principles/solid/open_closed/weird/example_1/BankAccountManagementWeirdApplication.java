@@ -7,14 +7,27 @@ import java.math.BigDecimal;
 @Slf4j
 public class BankAccountManagementWeirdApplication {
 
-    public static void main(String[] args) {
-        final MortgageWeirdBankAccount mortgageWeirdBankAccount = new MortgageWeirdBankAccount(BigDecimal.valueOf(100000), 25);
-        log.info("Percentage " + mortgageWeirdBankAccount.calculatePendingPercentage());
-        final PensionPlanWeirdBankAccount pensionPlanWeirdBankAccount = new PensionPlanWeirdBankAccount(BigDecimal.valueOf(5000), 25);
-        log.info("Percentage " + pensionPlanWeirdBankAccount.calculateBenefitsPercentage());
+    BankAccountPercentage bankPercentage;
 
-        /**
-         * Can we do it better?
-         */
+    public BankAccountManagementWeirdApplication(BankAccountPercentage bankPercentage){
+        this.bankPercentage = bankPercentage;
+    }
+
+    void performOperation(){
+        bankPercentage.calculatePercentage();
+    }
+
+
+
+    public static void main(String[] args) {
+
+        MortgageWeirdBankAccount mortage = new MortgageWeirdBankAccount(BigDecimal.valueOf(100000), 25);
+        BankAccountManagementWeirdApplication bankMortage = new BankAccountManagementWeirdApplication(mortage);
+        bankMortage.performOperation();
+
+        PensionPlanWeirdBankAccount pension = new PensionPlanWeirdBankAccount(BigDecimal.valueOf(100000), 25);
+        BankAccountManagementWeirdApplication bankPension = new BankAccountManagementWeirdApplication(pension);
+        bankPension.performOperation();
+
     }
 }
